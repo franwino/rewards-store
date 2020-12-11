@@ -1,35 +1,25 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header/Header.jsx";
 import "./AppStyles/styles.css";
+import { setUserDataFromApi } from "../scripts/api";
 
 function App() {
-  const initState = {
+  const initData = {
     name: "",
     coins: 0,
-    sort: "price_low",
   };
-  const [state, setState] = useState(initState);
+  const [localUserData, setLocalUserData] = useState(initData);
 
   useEffect(() => {
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM5NzQ0NmY5MGU5ZjAwMjAyNGJkNzAiLCJpYXQiOjE2MDcwMzgwMjJ9.zGf6LOnEgCCOTlyw-HG6cXDFDY9EPoh1pCagvbDt-lY",
-    };
-    fetch("https://coding-challenge-api.aerolab.co/user/me", { headers })
-      .then((response) => response.json())
-      .then((data) => {
-        let newState = { ...state };
-        newState.name = data.name;
-        newState.coins = data.points;
-        setState(newState);
-      })
-      .catch((error) => console.log(error));
+    setUserDataFromApi(localUserData, setLocalUserData);
   }, []);
 
   return (
     <div className="App">
-      <Header state={state} changeState={setState}></Header>
+      <Header
+        localUserData={localUserData}
+        setLocalUserData={setLocalUserData}
+      ></Header>
     </div>
   );
 }

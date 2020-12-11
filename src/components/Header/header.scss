@@ -1,13 +1,12 @@
 .topbar {
   display: flex;
   justify-content: space-between;
-  &.user {
-    display: flex;
-    align-items: center;
+  align-items: center;
+  &.user > span {
+    width: max-content;
   }
 }
 
 .heroImage {
-  max-width: min(100vw, 5760px);
-  //max-height: 40vh;
+  max-width: 100vw;
 }

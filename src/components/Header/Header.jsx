@@ -1,21 +1,28 @@
+import React from "react";
 import "./header.css";
 import logo from "../../assets/aerolab-logo.svg";
 import headImg from "../../assets/header.png";
-import UserCoins from "../UserCoins";
+import UserCoins from "./UserCoins";
+import AddCoins from "./AddCoins";
 
 export default function Header(props) {
-  const { state } = props;
+  const { localUserData, setLocalUserData } = props;
   return (
-    <div className="header">
+    <React.Fragment>
       <div className="topbar">
         <img src={logo} alt="logo"></img>
-        <UserCoins
-          name={state.name}
-          coins={state.coins}
-          changeState={state.changeState}
-        ></UserCoins>
+        <div className="topbar">
+          <UserCoins
+            name={localUserData.name}
+            coins={localUserData.coins}
+          ></UserCoins>
+          <AddCoins
+            localUserData={localUserData}
+            setLocalUserData={setLocalUserData}
+          ></AddCoins>
+        </div>
       </div>
       <img src={headImg} className="heroImage" alt="Products"></img>
-    </div>
+    </React.Fragment>
   );
 }
