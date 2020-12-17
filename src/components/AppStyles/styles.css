@@ -7,4 +7,21 @@
   color: white;
   padding: 5%;
 }
+
+.paginationBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.productList .paginationBar {
+  width: 75vw;
+}
 /*# sourceMappingURL=styles.css.map */

@@ -4,14 +4,16 @@ import logo from "../../assets/aerolab-logo.svg";
 import headImg from "../../assets/header.png";
 import UserCoins from "./UserCoins";
 import AddCoins from "./AddCoins";
+import History from "./History";
 
 export default function Header(props) {
   const { localUserData, setLocalUserData } = props;
   return (
-    <React.Fragment>
+    <section className="header">
       <div className="topbar">
         <img src={logo} alt="logo"></img>
-        <div className="topbar">
+        <History></History>
+        <div className="user-coins">
           <UserCoins
             name={localUserData.name}
             coins={localUserData.coins}
@@ -23,6 +25,6 @@ export default function Header(props) {
         </div>
       </div>
       <img src={headImg} className="heroImage" alt="Products"></img>
-    </React.Fragment>
+    </section>
   );
 }
