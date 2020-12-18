@@ -1,5 +1,11 @@
 .productList {
   padding: 1rem;
+  width: 100%;
+}
+
+.productList .products,
+.productList .filterList {
+  padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,20 +21,26 @@
   width: 100%;
 }
 
-.productList .products {
-  padding: 1rem;
+.productList .filterList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.productList .filterList .selection.dropdown {
+  margin: 2%;
+}
+
+@media screen and (min-width: 480px) {
+  .productList .filterList {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 /*# sourceMappingURL=productList.css.map */
