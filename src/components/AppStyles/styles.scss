@@ -1,4 +1,4 @@
-.coinsBtn button{
+.coinsBtn button {
   display: flex;
   border-radius: 20px;
   background-color: grey;
@@ -7,12 +7,25 @@
   padding: 5%;
 }
 
-.paginationBar{
+// Override semantic UI buttons
+button.ui.button {
+  border-radius: 20px;
+  .productList & {
+    color: black;
+    background-color: white;
+    width: 80%;
+    &:hover{
+      background-color: rgb(223, 223, 223);
+    }
+  }
+}
+
+.paginationBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  .productList &{
+  .productList & {
     width: 75vw;
   }
 }

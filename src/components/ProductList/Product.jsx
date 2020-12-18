@@ -15,7 +15,6 @@ function ModalRedeem(props) {
       open={open}
       trigger={
         <Button
-          className="button"
           onClick={() => {
             setSuccess(redeemToApi(id, state, setState));
             setOpen(true);
@@ -51,7 +50,7 @@ export default function Product(props) {
   } = props;
   const canBuy = availableCoins > productData.cost;
   return (
-    <div className="product">
+    <article className="product">
       <div className={"canBuy"}>
         {canBuy ? (
           <img src={buyBlue} alt="Comprar" />
@@ -80,6 +79,6 @@ export default function Product(props) {
           ""
         )}
       </div>
-    </div>
+    </article>
   );
 }

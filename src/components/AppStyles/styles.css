@@ -8,6 +8,20 @@
   padding: 5%;
 }
 
+button.ui.button {
+  border-radius: 20px;
+}
+
+.productList button.ui.button {
+  color: black;
+  background-color: white;
+  width: 80%;
+}
+
+.productList button.ui.button:hover {
+  background-color: #dfdfdf;
+}
+
 .paginationBar {
   display: -webkit-box;
   display: -ms-flexbox;
