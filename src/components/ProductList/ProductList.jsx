@@ -32,6 +32,18 @@ export default function ProductList(props) {
   // Listado de productos a mostrar
   const [prodDisplay, setProdDisplay] = useState([]);
 
+  // Traigo los productos al montar el componente
+  useEffect(() => {
+    getProdListFromApi(setProdList);
+    setProdDisplay([...prodList]);
+  }, []);
+
+  // Muestro todos los productos cada vez que cambia el listado original
+  useEffect(() => {
+    setProdDisplay([...prodList]);
+    filterOrder();
+  }, [prodList]);
+
   // Filtros y orden
   const [filters, setFilters] = useState(initFilters);
   function handleFilters(e, { value, name }) {
@@ -45,37 +57,44 @@ export default function ProductList(props) {
   }
 
   function sortProducts(a, b) {
+    const an = a.name.toLowerCase();
+    const bn = b.name.toLowerCase();
+    const ac = a.cost;
+    const bc = b.cost;
     switch (filters.sort) {
       case "az":
-        if (a.name > b.name) {
+        if (an > bn) {
           return 1;
         }
-        if (a.name < b.name) {
+        if (an < bn) {
           return -1;
         }
         return 0;
       case "za":
-        if (a.name < b.name) {
+        if (an < bn) {
           return 1;
         }
-        if (a.name > b.name) {
+        if (an > bn) {
           return -1;
         }
         return 0;
       case "low":
-        return a.cost - b.cost;
+        return ac - bc;
       case "high":
-        return b.cost - a.cost;
+        return bc - ac;
       default:
         return 0;
     }
   }
 
   // Modifico filtros/orden cuando se selecciona una opcion
-  useEffect(() => {
+  function filterOrder() {
     const prodFilter = prodList.filter(filterCat);
     prodFilter.sort(sortProducts);
     setProdDisplay(prodFilter);
+  }
+  useEffect(() => {
+    filterOrder();
   }, [filters]);
 
   //Pagination
@@ -90,17 +109,6 @@ export default function ProductList(props) {
     _DATA.jump(p.activePage);
   };
 
-  // Traigo los productos al montar el componente
-  useEffect(() => {
-    getProdListFromApi(setProdList);
-    setProdDisplay([...prodList]);
-  }, []);
-
-  // Muestro todos los productos cada vez que cambia el listado original
-  useEffect(() => {
-    setProdDisplay([...prodList]);
-  }, [prodList]);
-
   return (
     <section className="productList">
       <Filters
@@ -113,6 +121,10 @@ export default function ProductList(props) {
           activePage={page}
           totalPages={count}
           onPageChange={handleChange}
+          firstItem={page !== 1 ? undefined : null}
+          prevItem={page !== 1 ? undefined : null}
+          lastItem={page !== count ? undefined : null}
+          nextItem={page !== count ? undefined : null}
         ></Pagination>
         <p>
           {page < count ? page * PER_PAGE : prodDisplay.length} de{" "}
@@ -135,6 +147,10 @@ export default function ProductList(props) {
           activePage={page}
           totalPages={count}
           onPageChange={handleChange}
+          firstItem={page !== 1 ? undefined : null}
+          prevItem={page !== 1 ? undefined : null}
+          lastItem={page !== count ? undefined : null}
+          nextItem={page !== count ? undefined : null}
         ></Pagination>
         <p>
           {page < count ? page * PER_PAGE : prodDisplay.length} de{" "}

@@ -1,11 +1,5 @@
-.coinsBtn button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-radius: 20px;
-  background-color: grey;
-  color: white;
-  padding: 5%;
+.iconCoins {
+  margin: 0 5px;
 }
 
 button.ui.button {
@@ -20,6 +14,23 @@ button.ui.button {
 
 .productList button.ui.button:hover {
   background-color: #dfdfdf;
+}
+
+button.ui.button.coinsBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 20px;
+  background-color: #838383;
+  cursor: pointer;
+  color: white;
+  padding: 5%;
+}
+
+button.ui.button.coinsBtn:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(10, 212, 250, 0.86)), to(rgba(37, 187, 241, 0.86)));
+  background: linear-gradient(180deg, rgba(10, 212, 250, 0.86) 0%, rgba(37, 187, 241, 0.86) 100%);
+  color: #2c2c2c;
 }
 
 .paginationBar {
@@ -49,6 +60,9 @@ button.ui.button {
         -ms-flex-direction: row;
             flex-direction: row;
     margin: 0 10%;
+  }
+  .paginationBar.history__paginationBar {
+    margin: 0;
   }
   .paginationBar .ui.pagination.menu {
     margin-bottom: 0;

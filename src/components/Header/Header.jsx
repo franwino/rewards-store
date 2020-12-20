@@ -12,16 +12,18 @@ export default function Header(props) {
     <section className="header">
       <div className="topbar">
         <img src={logo} alt="logo"></img>
-        <History></History>
-        <div className="user-coins">
-          <UserCoins
-            name={localUserData.name}
-            coins={localUserData.coins}
-          ></UserCoins>
-          <AddCoins
-            localUserData={localUserData}
-            setLocalUserData={setLocalUserData}
-          ></AddCoins>
+        <div className="topMenu">
+          <History></History>
+          <div className="user-coins-add">
+            <UserCoins
+              name={localUserData.name}
+              coins={localUserData.coins}
+            ></UserCoins>
+            <AddCoins
+              localUserData={localUserData}
+              setLocalUserData={setLocalUserData}
+            ></AddCoins>
+          </div>
         </div>
       </div>
       <img src={headImg} className="heroImage" alt="Products"></img>

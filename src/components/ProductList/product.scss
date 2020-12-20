@@ -4,7 +4,7 @@
     padding: 0;
   }
   margin: 1%;
-  padding: 1%;
+  padding: 2%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,9 @@
       display: flex;
       opacity: 0.9;
     }
+  }
+  img{
+    border-radius: 20px;
   }
   h4 {
     font-size: 1.1rem;

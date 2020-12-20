@@ -32,7 +32,6 @@ export default function AddCoins(props) {
               <Grid.Column key={option}>
                 <Button
                   className="coinsBtn"
-                  labelPosition="right"
                   onClick={() => {
                     add(option, localUserData, setLocalUserData);
                     setOpen(false);

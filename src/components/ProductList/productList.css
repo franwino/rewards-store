@@ -29,13 +29,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 0;
 }
 
 .productList .filterList .selection.dropdown {
-  margin: 2%;
+  margin: 9px 5px;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 500px) {
   .productList .filterList {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

@@ -25,11 +25,14 @@ export default function History() {
 
   return (
     <Modal
+      className="history"
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
       trigger={
-        <Button onClick={() => getHistory(setHistory)}>Historial</Button>
+        <Button onClick={() => getHistory(setHistory)}>
+          Historial de Canjes
+        </Button>
       }
     >
       <Modal.Header>Tu historial de canjes</Modal.Header>
@@ -54,11 +57,17 @@ export default function History() {
             ))}
           </Table.Body>
         </Table>
-        <div className="paginationBar">
+        <div className="history__paginationBar paginationBar">
           <Pagination
             activePage={page}
             totalPages={count}
             onPageChange={handleChange}
+            boundaryRange={0}
+            ellipsisItem={null}
+            firstItem={page !== 1 ? undefined : null}
+            prevItem={page !== 1 ? undefined : null}
+            lastItem={page !== count ? undefined : null}
+            nextItem={page !== count ? undefined : null}
           ></Pagination>
           <p>
             Mostrando canjes {(page - 1) * PER_PAGE + 1} a{" "}

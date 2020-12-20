@@ -79,7 +79,7 @@ export async function getProdListFromApi(setState) {
 }
 
 // Redeem product
-export async function redeemToApi(id, state, setState) {
+export async function redeemToApi(id) {
   try {
     const fetchBody = JSON.stringify({ productId: id });
     const fetchOptions = {
@@ -88,7 +88,7 @@ export async function redeemToApi(id, state, setState) {
       body: fetchBody,
     };
     await fetch("https://coding-challenge-api.aerolab.co/redeem", fetchOptions);
-    setUserDataFromApi(state, setState);
+    
     return true;
   } catch (error) {
     console.log("Error: ", error);

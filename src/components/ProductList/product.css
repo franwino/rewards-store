@@ -1,6 +1,6 @@
 .product {
   margin: 1%;
-  padding: 1%;
+  padding: 2%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -37,6 +37,10 @@
   display: -ms-flexbox;
   display: flex;
   opacity: 0.9;
+}
+
+.product img {
+  border-radius: 20px;
 }
 
 .product h4 {

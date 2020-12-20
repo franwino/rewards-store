@@ -1,10 +1,5 @@
-.coinsBtn button {
-  display: flex;
-  border-radius: 20px;
-  background-color: grey;
-  //cursor: pointer;
-  color: white;
-  padding: 5%;
+.iconCoins {
+  margin: 0 5px;
 }
 
 // Override semantic UI buttons
@@ -16,6 +11,22 @@ button.ui.button {
     width: 80%;
     &:hover {
       background-color: rgb(223, 223, 223);
+    }
+  }
+  &.coinsBtn {
+    display: flex;
+    border-radius: 20px;
+    background-color: rgb(131, 131, 131);
+    cursor: pointer;
+    color: white;
+    padding: 5%;
+    &:hover {
+      background: linear-gradient(
+        180deg,
+        rgba(10, 212, 250, 0.86) 0%,
+        rgba(37, 187, 241, 0.86) 100%
+      );
+      color: rgb(44, 44, 44);
     }
   }
 }
@@ -31,6 +42,9 @@ button.ui.button {
   @media screen and (min-width: 520px) {
     flex-direction: row;
     margin: 0 10%;
+    &.history__paginationBar {
+      margin: 0;
+    }
     .ui.pagination.menu {
       margin-bottom: 0;
     }

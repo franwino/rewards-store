@@ -13,10 +13,11 @@
   .filterList {
     display: flex;
     flex-direction: column;
+    padding: 0;
     .selection.dropdown {
-      margin: 2%;
+      margin: 9px 5px;
     }
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 500px) {
       flex-direction: row;
     }
   }

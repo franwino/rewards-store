@@ -2,21 +2,25 @@ import React, { useState } from "react";
 import buyBlue from "../../assets/buy-blue.svg";
 import IconCoins from "../IconCoins";
 import "./product.css";
-import { redeemToApi } from "../../scripts/api";
+import { redeemToApi, setUserDataFromApi } from "../../scripts/api";
 import { Button, Modal } from "semantic-ui-react";
 
 function ModalRedeem(props) {
-  const { id, state, setState } = props;
+  const { id, localUserData, setLocalUserData } = props;
   const [open, setOpen] = useState(false);
   const [success, setSuccess] = useState(false);
   return (
     <Modal
       size="mini"
       open={open}
+      onClose={() => {
+        setUserDataFromApi(localUserData, setLocalUserData);
+        setOpen(false);
+      }}
       trigger={
         <Button
           onClick={() => {
-            setSuccess(redeemToApi(id, state, setState));
+            setSuccess(redeemToApi(id));
             setOpen(true);
           }}
         >
@@ -28,12 +32,18 @@ function ModalRedeem(props) {
       <Modal.Content>
         <p>
           {success
-            ? "Canjeaste tu prodcucto exitosamente. Que lo disfrutes!"
+            ? "Canjeaste tu producto exitosamente. Que lo disfrutes!"
             : "Hubo un problema a la hora de canjear el producto, intentá de nuevo más tarde."}
         </p>
       </Modal.Content>
       <Modal.Actions>
-        <Button positive onClick={() => setOpen(false)}>
+        <Button
+          positive
+          onClick={() => {
+            setUserDataFromApi(localUserData, setLocalUserData);
+            setOpen(false);
+          }}
+        >
           Cerrar
         </Button>
       </Modal.Actions>
@@ -48,7 +58,7 @@ export default function Product(props) {
     localUserData,
     setLocalUserData,
   } = props;
-  const canBuy = availableCoins > productData.cost;
+  const canBuy = availableCoins >= productData.cost;
   return (
     <article className="product">
       <div className={"canBuy"}>
@@ -72,8 +82,8 @@ export default function Product(props) {
         {canBuy ? (
           <ModalRedeem
             id={productData._id}
-            state={localUserData}
-            setState={setLocalUserData}
+            localUserData={localUserData}
+            setLocalUserData={setLocalUserData}
           ></ModalRedeem>
         ) : (
           ""
