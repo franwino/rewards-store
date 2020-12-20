@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/rewards-store/static/css/main.6f3c8d80.chunk.css",
-    "main.js": "/rewards-store/static/js/main.3aac996a.chunk.js",
-    "main.js.map": "/rewards-store/static/js/main.3aac996a.chunk.js.map",
+    "main.css": "/rewards-store/static/css/main.954c439c.chunk.css",
+    "main.js": "/rewards-store/static/js/main.855ff30a.chunk.js",
+    "main.js.map": "/rewards-store/static/js/main.855ff30a.chunk.js.map",
     "runtime-main.js": "/rewards-store/static/js/runtime-main.c89f14b1.js",
     "runtime-main.js.map": "/rewards-store/static/js/runtime-main.c89f14b1.js.map",
     "static/css/2.3cbca681.chunk.css": "/rewards-store/static/css/2.3cbca681.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.34297eda.chunk.js.map": "/rewards-store/static/js/2.34297eda.chunk.js.map",
     "index.html": "/rewards-store/index.html",
     "static/css/2.3cbca681.chunk.css.map": "/rewards-store/static/css/2.3cbca681.chunk.css.map",
-    "static/css/main.6f3c8d80.chunk.css.map": "/rewards-store/static/css/main.6f3c8d80.chunk.css.map",
+    "static/css/main.954c439c.chunk.css.map": "/rewards-store/static/css/main.954c439c.chunk.css.map",
     "static/js/2.34297eda.chunk.js.LICENSE.txt": "/rewards-store/static/js/2.34297eda.chunk.js.LICENSE.txt",
     "static/media/aerolab-logo.0a8fb170.svg": "/rewards-store/static/media/aerolab-logo.0a8fb170.svg",
     "static/media/semantic.min.css": "/rewards-store/static/media/outline-icons.ddae9b1b.woff",
@@ -21,7 +21,7 @@
     "static/js/runtime-main.c89f14b1.js",
     "static/css/2.3cbca681.chunk.css",
     "static/js/2.34297eda.chunk.js",
-    "static/css/main.6f3c8d80.chunk.css",
-    "static/js/main.3aac996a.chunk.js"
+    "static/css/main.954c439c.chunk.css",
+    "static/js/main.855ff30a.chunk.js"
   ]
 }
