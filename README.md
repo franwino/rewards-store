@@ -1,15 +1,20 @@
-# Getting Started with Create React App
+# Rewards Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto final del curso de Desarrollo Web Front End de Acmámica.
+Se trata de una tienda para canjear recompensas por puntos, mediante una API brindada por el Aerolab Challenge.
 
-## Available Scripts
+## Tecnologías utilizadas
 
-In the project directory, you can run:
+- React
+- SemanticUI
+- SASS
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Visualizar nombre del usuario y puntos disponibles.
+- Agregar puntos.
+- Filtrar listado por categorías.
+- Ordenar el listado por precio o alfabéticamente (Ascendente o descendentemente).
+- Canjear productos.
+- Ver historial de canjes
+- Tanto el listado de productos como el historial se muestran divididos en páginas.
