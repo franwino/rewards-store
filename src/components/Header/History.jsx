@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Table, Modal, Pagination } from "semantic-ui-react";
 import moment from "moment";
-import { getHistory } from "../../scripts/api";
+import { getHistory } from "../../services/api";
 import usePagination from "../../components/Hooks/usePagination";
 
 export default function History() {
@@ -64,10 +64,10 @@ export default function History() {
             onPageChange={handleChange}
             boundaryRange={0}
             ellipsisItem={null}
-            firstItem={page !== 1 ? undefined : null}
-            prevItem={page !== 1 ? undefined : null}
-            lastItem={page !== count ? undefined : null}
-            nextItem={page !== count ? undefined : null}
+            firstItem={page === 1 ? null : undefined}
+            prevItem={page === 1 ? null : undefined}
+            lastItem={page === count ? null : undefined}
+            nextItem={page === count ? null : undefined}
           ></Pagination>
           <p>
             Mostrando canjes {(page - 1) * PER_PAGE + 1} a{" "}

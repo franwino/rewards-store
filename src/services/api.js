@@ -6,16 +6,16 @@ const headers = {
     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmM5NzQ0NmY5MGU5ZjAwMjAyNGJkNzAiLCJpYXQiOjE2MDcwMzgwMjJ9.zGf6LOnEgCCOTlyw-HG6cXDFDY9EPoh1pCagvbDt-lY",
 };
 
+//Main URL
+const url = "https://coding-challenge-api.aerolab.co";
+
 // Get User data from API
 async function getUserDataApi() {
   try {
-    const response = await fetch(
-      "https://coding-challenge-api.aerolab.co/user/me",
-      {
-        method: "GET",
-        headers: headers,
-      }
-    );
+    const response = await fetch(url + "/user/me", {
+      method: "GET",
+      headers: headers,
+    });
     const userData = await response.json();
     return userData;
   } catch (error) {
@@ -39,7 +39,7 @@ export async function setUserDataFromApi(state, setState) {
 // AddCoins to API
 export async function postAddCoins(amount) {
   try {
-    await fetch("https://coding-challenge-api.aerolab.co/user/points", {
+    await fetch(url + "/user/points", {
       method: "POST",
       headers: headers,
       body: JSON.stringify({
@@ -54,13 +54,10 @@ export async function postAddCoins(amount) {
 // Get product list from API
 async function getProducts() {
   try {
-    const response = await fetch(
-      "https://coding-challenge-api.aerolab.co/products",
-      {
-        method: "GET",
-        headers: headers,
-      }
-    );
+    const response = await fetch(url + "/products", {
+      method: "GET",
+      headers: headers,
+    });
     const productList = await response.json();
     return productList;
   } catch (error) {
@@ -87,8 +84,8 @@ export async function redeemToApi(id) {
       headers: headers,
       body: fetchBody,
     };
-    await fetch("https://coding-challenge-api.aerolab.co/redeem", fetchOptions);
-    
+    await fetch(url + "/redeem", fetchOptions);
+
     return true;
   } catch (error) {
     console.log("Error: ", error);
@@ -99,13 +96,10 @@ export async function redeemToApi(id) {
 // Get History
 export async function getHistory(setState) {
   try {
-    const response = await fetch(
-      "https://coding-challenge-api.aerolab.co/user/history",
-      {
-        method: "GET",
-        headers: headers,
-      }
-    );
+    const response = await fetch(url + "/user/history", {
+      method: "GET",
+      headers: headers,
+    });
     const history = await response.json();
     setState(history);
   } catch (error) {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Header, Grid, Modal } from "semantic-ui-react";
-import IconCoins from "../IconCoins";
-import { postAddCoins, setUserDataFromApi } from "../../scripts/api";
+import IconCoins from "../../assets/IconCoins";
+import { postAddCoins, setUserDataFromApi } from "../../services/api";
 
 async function add(amount, localUserData, setLocalUserData) {
   await postAddCoins(amount);

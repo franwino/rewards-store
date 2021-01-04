@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header/Header.jsx";
-import ProductList from "./ProductList/ProductList";
-import "./AppStyles/styles.css";
-import { setUserDataFromApi } from "../scripts/api";
+import Header from "./components/Header/Header.jsx";
+import ProductList from "./components/ProductList/ProductList";
+import "./styles/styles.css";
+import { setUserDataFromApi } from "./services/api";
 
 function App() {
   const initData = {

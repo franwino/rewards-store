@@ -3,8 +3,9 @@ import { Dropdown } from "semantic-ui-react";
 
 export default function Filters(props) {
   const { prodList, filters, handleFilters } = props;
-  const categories = [...new Set(prodList.map((prod) => prod.category))].sort();
 
+  // Genero un array de categorias
+  const categories = [...new Set(prodList.map((prod) => prod.category))].sort();
   const categoryOptions = categories.map((category) => ({
     key: category,
     value: category,
@@ -16,9 +17,10 @@ export default function Filters(props) {
     text: "Todas las Categorías",
   });
 
+  // Genero un array de opciones para ordenar
   const sortOptions = [
-    { key: "az", value: "az", text: "De la A a la Z" },
-    { key: "za", value: "za", text: "De la Z a la A" },
+    { key: "fromAtoZ", value: "fromAtoZ", text: "De la A a la Z" },
+    { key: "fromZtoA", value: "fromZtoA", text: "De la Z a la A" },
     { key: "low", value: "low", text: "Más baratos primero" },
     { key: "high", value: "high", text: "Más caros primero" },
   ];

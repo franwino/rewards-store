@@ -1,5 +1,5 @@
 import React from "react";
-import "./header.css";
+import "./styles/header.css";
 import logo from "../../assets/aerolab-logo.svg";
 import headImg from "../../assets/header.png";
 import UserCoins from "./UserCoins";
@@ -9,8 +9,8 @@ import History from "./History";
 export default function Header(props) {
   const { localUserData, setLocalUserData } = props;
   return (
-    <section className="header">
-      <div className="topbar">
+    <header className="header">
+      <nav className="topbar">
         <img src={logo} alt="logo"></img>
         <div className="topMenu">
           <History></History>
@@ -25,8 +25,8 @@ export default function Header(props) {
             ></AddCoins>
           </div>
         </div>
-      </div>
+      </nav>
       <img src={headImg} className="heroImage" alt="Products"></img>
-    </section>
+    </header>
   );
 }

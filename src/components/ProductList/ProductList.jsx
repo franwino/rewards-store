@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getProdListFromApi } from "../../scripts/api";
+import { getProdListFromApi } from "../../services/api";
 import { Pagination } from "semantic-ui-react";
 import usePagination from "../Hooks/usePagination";
-import Product from "./Product";
+import Product from "./Product/Product";
 import Filters from "./Filters";
-import "./productList.css";
+import "./styles/productList.css";
 
 const initProdList = [
   {
@@ -57,31 +57,31 @@ export default function ProductList(props) {
   }
 
   function sortProducts(a, b) {
-    const an = a.name.toLowerCase();
-    const bn = b.name.toLowerCase();
-    const ac = a.cost;
-    const bc = b.cost;
+    const aName = a.name.toLowerCase();
+    const bNAme = b.name.toLowerCase();
+    const aCost = a.cost;
+    const bCost = b.cost;
     switch (filters.sort) {
-      case "az":
-        if (an > bn) {
+      case "fromAtoZ":
+        if (aName > bNAme) {
           return 1;
         }
-        if (an < bn) {
+        if (aName < bNAme) {
           return -1;
         }
         return 0;
-      case "za":
-        if (an < bn) {
+      case "fromZtoA":
+        if (aName < bNAme) {
           return 1;
         }
-        if (an > bn) {
+        if (aName > bNAme) {
           return -1;
         }
         return 0;
       case "low":
-        return ac - bc;
+        return aCost - bCost;
       case "high":
-        return bc - ac;
+        return bCost - aCost;
       default:
         return 0;
     }
@@ -102,15 +102,15 @@ export default function ProductList(props) {
   const PER_PAGE = 16;
 
   const count = Math.ceil(prodDisplay.length / PER_PAGE);
-  const _DATA = usePagination(prodDisplay, PER_PAGE);
+  const prodDisplayPaginated = usePagination(prodDisplay, PER_PAGE);
 
   const handleChange = (e, p) => {
     setPage(p.activePage);
-    _DATA.jump(p.activePage);
+    prodDisplayPaginated.jump(p.activePage);
   };
 
   return (
-    <section className="productList">
+    <main className="productList">
       <Filters
         prodList={prodList}
         filters={filters}
@@ -131,8 +131,8 @@ export default function ProductList(props) {
           {prodDisplay.length} productos
         </p>
       </div>
-      <div className="products">
-        {_DATA.currentData().map((product) => (
+      <section className="products">
+        {prodDisplayPaginated.currentData().map((product) => (
           <Product
             key={product._id}
             availableCoins={availableCoins}
@@ -141,7 +141,7 @@ export default function ProductList(props) {
             setLocalUserData={setLocalUserData}
           ></Product>
         ))}
-      </div>
+      </section>
       <div className="paginationBar">
         <Pagination
           activePage={page}
@@ -157,6 +157,6 @@ export default function ProductList(props) {
           {prodDisplay.length} productos
         </p>
       </div>
-    </section>
+    </main>
   );
 }

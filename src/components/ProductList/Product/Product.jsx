@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import buyBlue from "../../assets/buy-blue.svg";
-import IconCoins from "../IconCoins";
-import "./product.css";
-import { redeemToApi, setUserDataFromApi } from "../../scripts/api";
+import buyBlue from "../../../assets/buy-blue.svg";
+import IconCoins from "../../../assets/IconCoins";
+import "./styles/product.css";
+import { redeemToApi, setUserDataFromApi } from "../../../services/api";
 import { Button, Modal } from "semantic-ui-react";
 
 function ModalRedeem(props) {

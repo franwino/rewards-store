@@ -1,4 +1,4 @@
-import IconCoins from "../IconCoins";
+import IconCoins from "../../assets/IconCoins";
 
 export default function UserCoins(props) {
   return (
